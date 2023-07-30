@@ -62,7 +62,8 @@ def voices(message):
 
 @bot.message_handler(commands=['github'])
 def github(message):
-    bot.send_message(message.chat.id, '<a href="github.com">Репозиторий с проектом</a>',
+    bot.send_message(message.chat.id,
+                     '<a href="https://github.com/BLINOMAN/TelegramBot-YandexPracticum-Test">Репозиторий с проектом</a>',
                      parse_mode='html',
                      reply_markup=start_markup)
 
