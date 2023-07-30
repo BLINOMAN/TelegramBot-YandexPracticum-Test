@@ -42,7 +42,7 @@ def hobby(message):
                    'мне отдохнуть от душного города и запечатлеть природу в самое  разное время года. А после того, '
                    'как у меня появился личный автомобиль, мне стала интересна еще одна категория походов – авто '
                    'походы, суть которых заключается в поездках по разным местам нашей страны на автомобиле.\n\nНа '
-                   'приложенной фотографии - поход на Тальков  камень, Сысерть',
+                   'приложенной фотографии - поход на Тальков камень, Сысерть',
                    reply_markup=start_markup)
 
 
@@ -82,11 +82,15 @@ def callback_query(callback):
                        'Гимназия №94, Екатеринбург, 2021 год',
                        reply_markup=start_markup)
     elif callback.data == 'voice_1':
-        bot.send_message(callback.message.chat.id, 'БАБКА!!!!!!!!!!!!!!!!', reply_markup=start_markup)
+        file = open('voices/voice_1.ogg', 'rb')
+        bot.send_audio(callback.message.chat.id, file, "Объясняю бабушке - что такое ChatGPT.",
+                       reply_markup=start_markup)
     elif callback.data == 'voice_2':
-        bot.send_message(callback.message.chat.id, 'БАЗЫДАННЫХ!!!!!!!!!!!', reply_markup=start_markup)
+        file = open('voices/voice_2.ogg', 'rb')
+        bot.send_audio(callback.message.chat.id, file, "Различия SQL и NoSQL.", reply_markup=start_markup)
     elif callback.data == 'voice_3':
-        bot.send_message(callback.message.chat.id, 'ЛЮБОВЬ!!!!!!!!!!!!!!!', reply_markup=start_markup)
+        file = open('voices/voice_3.ogg', 'rb')
+        bot.send_audio(callback.message.chat.id, file, "Про первую любовь.", reply_markup=start_markup)
 
 
-bot.infinity_polling()
+bot.polling(non_stop=True)
